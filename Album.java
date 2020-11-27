@@ -31,7 +31,9 @@ public class Album {
 
     //新增歌曲至專輯
     public void addSong(String title, int duration){
-        Song newSong = new Song(title, duration);
-        songs.add(newSong);
+        if (getSong(title) == null) {
+            Song newSong = new Song(title, duration);
+            songs.add(newSong);
+        }
     }
 }
