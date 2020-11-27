@@ -49,8 +49,9 @@ public class Main {
         System.out.println("0. Print Instruction.");
         System.out.println("1. Skip forward.");
         System.out.println("2. Skip backward.");
-        System.out.println("3. Print the list.");
-        System.out.println("4. Quit.");
+        System.out.println("3. Repeat the song.");
+        System.out.println("4. Print the list.");
+        System.out.println("5. Quit.");
     }
 
     //新增音樂
@@ -125,10 +126,35 @@ public class Main {
                     }
                     break;
                 case 3:
+                    if(goForward == true){
+                        if(i.hasPrevious()){
+                            Song currentSong = i.previous();
+                            System.out.println("It's playing " + currentSong.getTitle());
+                            System.out.println();
+                            goForward = false;
+                        }
+                        else{
+                            System.out.println("At the start of the list.");
+                        }
+                    }
+                    else{
+                        if(i.hasNext()){
+                            Song currentSong = i.next();
+                            System.out.println("It's playing " + currentSong.getTitle());
+                            System.out.println();
+                            goForward = true;
+                        }
+                        else{
+                            System.out.println("At the end of the list.");
+                        }
+                    }
+                    break;
+                case 4:
                     while(i.hasNext()){
                         System.out.println(i.next().getTitle());
                     }
-                case 4:
+                    break;
+                case 5:
                     go = false;
                     break;
 
