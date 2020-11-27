@@ -49,7 +49,8 @@ public class Main {
         System.out.println("0. Print Instruction.");
         System.out.println("1. Skip forward.");
         System.out.println("2. Skip backward.");
-        System.out.println("3. Quit.");
+        System.out.println("3. Print the list.");
+        System.out.println("4. Quit.");
     }
 
     //新增音樂
@@ -124,6 +125,10 @@ public class Main {
                     }
                     break;
                 case 3:
+                    while(i.hasNext()){
+                        System.out.println(i.next().getTitle());
+                    }
+                case 4:
                     go = false;
                     break;
 
